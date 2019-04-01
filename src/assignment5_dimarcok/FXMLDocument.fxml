@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="320" prefWidth="320" xmlns:fx="http://javafx.com/fxml/1" fx:controller="assignment5_dimarcok.FXMLDocumentController">
+    <children>
+        <Label layoutX="100" layoutY="10" minHeight="40" minWidth="200" text="Kevin's Patient List" fx:id="title"/>
+        <TextField layoutX="10" layoutY="60" minHeight="40" minWidth="140" fx:id="patientID"/>
+        <Label layoutX="200" layoutY="60" minHeight="40" minWidth="40" text="Patient ID" fx:id="patientIDlabel" />
+        <TextField layoutX="10" layoutY="110" minHeight="40" minWidth="140" fx:id="patientName"/>
+        <Label layoutX="200" layoutY="110" minHeight="40" minWidth="40" text="Patient Name" fx:id="patientNamelabel" />
+        <TextField layoutX="10" layoutY="160" minHeight="40" minWidth="140" fx:id="ownerID"/>
+        <Label layoutX="200" layoutY="160" minHeight="40" minWidth="40" text="Owner ID" fx:id="ownerIDlabel" />
+        
+        <Button layoutX="120" layoutY="210" minHeight="40" minWidth="40" text="Add Patient" fx:id="addButton"/>
+        <Button layoutX="125" layoutY="260" minHeight="40" minWidth="40" text="Patient list" fx:id="listButton"/>
+    </children>
+</AnchorPane>
