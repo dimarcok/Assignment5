@@ -1,6 +1,7 @@
 /**
  *
  * @author Kevin
+ * @date today
  */
 public class Patient {
     public final int NAME_SIZE = 30;
