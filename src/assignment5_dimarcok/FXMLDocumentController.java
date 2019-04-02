@@ -47,7 +47,7 @@ public class FXMLDocumentController implements Initializable {
     }
     @FXML 
     private void report(ActionEvent event) {
-        
+        // this is a comment
     }
     public static byte[] readFile(String filePath, int size, int location) throws FileNotFoundException, IOException {
         RandomAccessFile file = new RandomAccessFile("Patient.dat", "r");
