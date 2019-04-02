@@ -17,6 +17,6 @@
         <Label layoutX="200" layoutY="160" minHeight="40" minWidth="40" text="Owner ID" fx:id="ownerIDlabel" />
         
         <Button layoutX="120" layoutY="210" minHeight="40" minWidth="40" text="Add Patient" fx:id="addButton"/>
-        <Button layoutX="125" layoutY="260" minHeight="40" minWidth="40" text="Patient list" fx:id="listButton"/>
+        <Button layoutX="140" layoutY="260" minHeight="40" minWidth="40" text="Report" fx:id="reportButton"/>
     </children>
 </AnchorPane>
