@@ -21,7 +21,7 @@ import javafx.scene.control.TextField;
  * @author Kevin
  */
 public class FXMLDocumentController implements Initializable {
-    public static final String FILE_PATH = "C:/Users/Kevin/NetBeansProjects/Assignment5_dimarcok/Patient.dat";
+    public static final String FILE_PATH = "Patient.txt";
     
     @FXML
     private Label title;
@@ -33,35 +33,63 @@ public class FXMLDocumentController implements Initializable {
     private TextField ownerID;
     
     @FXML
-    private void addPatient(ActionEvent event) {
+    private void addPatient(ActionEvent event) throws IOException {
         String name = patientName.getText();
-        
+        int patientid;
+        int ownerid;
         try {
-            int patientid = Integer.parseInt(patientID.getText());
-            int ownerid = Integer.parseInt(ownerID.getText());
+            patientid = Integer.parseInt(patientID.getText());
+            ownerid = Integer.parseInt(ownerID.getText());
         } catch (IllegalArgumentException e) {
-            int patientid = 1234;
-            int ownerid = 1234;
-            
+            patientid = 1234;
+            ownerid = 1234;    
         }
+        patientID.setText("");
+        patientName.setText("");
+        ownerID.setText("");
+        String data = (String) (patientid + " " + name + " " + ownerid + "\n");
+        try {
+            RandomAccessFile file = new RandomAccessFile(FILE_PATH, "rw");
+            writeFile(FILE_PATH, data, (int) file.length());
+            System.out.println(file.length());
+        } catch (FileNotFoundException e) {
+            System.out.println("Error in try/catch");
+        }
+        
     }
     @FXML 
-    private void report(ActionEvent event) {
-        // this is a comment
+    private void report(ActionEvent event) throws IOException {
+        try {
+            RandomAccessFile file = new RandomAccessFile(FILE_PATH, "r");
+            readFile(FILE_PATH, 100, (int) file.length());
+        } catch (FileNotFoundException e) {
+            System.out.println("Error in try/catch");
+        }
     }
-    public static byte[] readFile(String filePath, int size, int location) throws FileNotFoundException, IOException {
-        RandomAccessFile file = new RandomAccessFile("Patient.dat", "r");
-        file.seek(location);
-        byte[] bytes = new byte[size];
-        file.read(bytes);
-        file.close();
-        return bytes;    
+    public static byte[] readFile(String filePath, int size, int location) 
+            throws FileNotFoundException, IOException {
+        try {
+           RandomAccessFile file = new RandomAccessFile(FILE_PATH, "r");
+            file.seek(location);
+            byte[] bytes = new byte[size];
+            file.read(bytes);
+            file.close();
+            return bytes; 
+        } catch (IOException e) {
+            e.printStackTrace();
+            return null;
+        }       
     }
-    public static void writeFile(String filePath, String data, int location) throws FileNotFoundException, IOException {
-        RandomAccessFile file = new RandomAccessFile("Patient.dat", "rw");
-        file.seek(location);
-        file.write(data.getBytes());
-        file.close();  
+    public static void writeFile(String filePath, String data, int location) 
+            throws FileNotFoundException, IOException {
+        try {
+            RandomAccessFile file = new RandomAccessFile(FILE_PATH, "rw");
+            file.seek(location);
+            file.write(data.getBytes());
+            file.close();  
+    }   catch (IOException e) {
+            e.printStackTrace();
+        }
     }
     
     @Override
