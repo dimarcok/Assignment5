@@ -21,7 +21,7 @@ import javafx.scene.control.TextField;
  * @author Kevin
  */
 public class FXMLDocumentController implements Initializable {
-    public static final String FILE_PATH = "Patient.txt";
+    public static final String FILE_PATH = "Patient.dat";
     
     @FXML
     private Label title;
