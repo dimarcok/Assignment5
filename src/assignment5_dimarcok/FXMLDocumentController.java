@@ -12,9 +12,13 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 /**
  *
@@ -61,9 +65,20 @@ public class FXMLDocumentController implements Initializable {
     private void report(ActionEvent event) throws IOException {
         try {
             RandomAccessFile file = new RandomAccessFile(FILE_PATH, "r");
-            readFile(FILE_PATH, 100, (int) file.length());
+            readFile(FILE_PATH, 1_000_000, (int) file.length());
         } catch (FileNotFoundException e) {
             System.out.println("Error in try/catch");
+        }
+        
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("PatientList.fxml"));
+            Parent root1 = (Parent) loader.load();
+            Stage stage = new Stage();
+            stage.setTitle("Reports");
+            stage.setScene(new Scene(root1));
+            stage.show();
+        } catch (Exception e) {
+            System.out.println("Does not work"); 
         }
     }
     public static byte[] readFile(String filePath, int size, int location) 

@@ -23,10 +23,11 @@ public class Assignment5_dimarcok extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
-        Parent report = FXMLLoader.load(getClass().getResource("FXMLPatient.fxml"));
+        //Parent report = FXMLLoader.load(getClass().getResource("FXMLPatient.fxml"));
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+        //Scene reportScene = new Scene(report);
         
         
     }   
