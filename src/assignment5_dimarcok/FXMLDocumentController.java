@@ -71,7 +71,7 @@ public class FXMLDocumentController implements Initializable {
         }
         
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("PatientList.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("FXMLPatient.fxml"));
             Parent root1 = (Parent) loader.load();
             Stage stage = new Stage();
             stage.setTitle("Reports");
