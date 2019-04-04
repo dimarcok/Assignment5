@@ -5,9 +5,20 @@
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="assignment5_dimarcok.FXMLDocumentController">
     <children>
-        <Label id="title" layoutX="100" layoutY="10" minHeight="40" minWidth="200" text="Patient List" fx:id="title"/>
+        <Label id="title" layoutX="240" layoutY="10" minHeight="40" minWidth="200" text="Patient List" fx:id="title">
+            <font>
+                <Font size="24.0"/>
+            </font>
+        </Label>
+        <GridPane alignment="center" hgap="10" vgap="10">
+            
+        </GridPane>
+        
+           
+        
     </children>
 </AnchorPane>
