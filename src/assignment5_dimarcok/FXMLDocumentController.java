@@ -5,7 +5,6 @@
  */
 package assignment5_dimarcok;
 
-//import static assignment5_dimarcok.FXMLPatientController.readFile;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.RandomAccessFile;
@@ -27,9 +26,7 @@ import javafx.stage.Stage;
  */
 public class FXMLDocumentController implements Initializable {
     public static final String FILE_PATH = "Patient.dat";
-    
-    @FXML
-    private Label title;
+
     @FXML 
     private TextField patientID;
     @FXML 
@@ -37,8 +34,18 @@ public class FXMLDocumentController implements Initializable {
     @FXML 
     private TextField ownerID;
     
+    /**
+     * This is the main function to add the Patient to the list. It parses numbers from the patient
+     * and owner IDs and makes sure there is a real String for the patients name. It adds this information
+     * to a Patient.dat file to be read through the report function
+     * 
+     * @param event on click
+     * @throws FileNotFoundException To make sure FILE_PATH is found
+     * @throws IOException  Read/Write exception to Patient.dat file
+     * @throws IllegalArgumentException To parse numbers and blank input in text fields
+     */
     @FXML
-    private void addPatient(ActionEvent event) throws IOException, IllegalArgumentException {
+    private void addPatient(ActionEvent event) throws FileNotFoundException, IOException, IllegalArgumentException {
         String name;
         int patientid;
         int ownerid;
@@ -48,9 +55,6 @@ public class FXMLDocumentController implements Initializable {
         } else {
             name = patientName.getText().trim();
         }
-            
-            
-        
         try {
             patientid = Integer.parseInt(patientID.getText());
             ownerid = Integer.parseInt(ownerID.getText());
@@ -58,6 +62,7 @@ public class FXMLDocumentController implements Initializable {
             patientid = 1234;
             ownerid = 1234;    
         }
+        // clears text fields
         patientID.setText("");
         patientName.setText("");
         ownerID.setText("");
@@ -70,6 +75,15 @@ public class FXMLDocumentController implements Initializable {
             System.out.println("Error in try/catch");
         }      
     }
+    /**
+     * This is the on main report function that opens a second window to show the current patients.
+     * It is pulling the information from the Patient.dat that can be written to in the add patient function.
+     * This will pull the information in the following order
+     * (Patient ID, Patient Name, OwnerID)
+     * 
+     * @param event on click
+     * @throws IOException  Read/Write exception to Patient.dat file 
+     */
     @FXML 
     private void report(ActionEvent event) throws IOException {
         try {
@@ -84,6 +98,16 @@ public class FXMLDocumentController implements Initializable {
             System.out.println("Does not work, Error in report button"); 
         }
     }
+    /**
+     * This is the write to file function that is called on the add patient button.
+     * It keeps the same location from the last written piece to append onto it. 
+     * 
+     * @param filePath location to file
+     * @param data what is being written to file
+     * @param location starting location of file
+     * @throws FileNotFoundException To make sure FILE_PATH is found
+     * @throws IOException  Read/Write exception to Patient.dat file 
+     */
     @FXML 
     public static void writeFile(String filePath, String data, int location) 
             throws FileNotFoundException, IOException {
