@@ -5,12 +5,12 @@
  */
 package assignment5_dimarcok;
 
-import static assignment5_dimarcok.FXMLDocumentController.FILE_PATH;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.LineNumberReader;
 import java.io.RandomAccessFile;
 import java.net.URL;
+import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -39,13 +39,11 @@ public class FXMLPatientController implements Initializable {
         ArrayList<String> list = new ArrayList<String>();
         try {
             RandomAccessFile file = new RandomAccessFile(FILE_PATH, "r");
-            file.seek(location);
-            
+            file.seek(location);            
             while (file.readLine() != null) {
-                list.add(file.readLine());
+                
                 //fullList.setText(fullList.getText() + list);
             }
-            fullList.setText(list.toString());
             file.close();
             return list; 
         } catch (IOException e) {

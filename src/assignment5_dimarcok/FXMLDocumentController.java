@@ -5,7 +5,7 @@
  */
 package assignment5_dimarcok;
 
-import static assignment5_dimarcok.FXMLPatientController.readFile;
+//import static assignment5_dimarcok.FXMLPatientController.readFile;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.RandomAccessFile;
@@ -71,6 +71,7 @@ public class FXMLDocumentController implements Initializable {
             stage.setScene(new Scene(root1));
             stage.show();
         } catch (IOException e) {
+            e.printStackTrace();
             System.out.println("Does not work, Error in report button"); 
         }
     }
