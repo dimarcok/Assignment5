@@ -31,18 +31,21 @@ public class FXMLPatientController implements Initializable {
     public static final String FILE_PATH = "Patient.dat";
     
     @FXML
-    private static Label fullList;
+    private Label fullList;
     
 
-    public static ArrayList<String> readFile(String filePath, int location) 
+    public ArrayList<String> readFile(String filePath, int location) 
             throws FileNotFoundException, IOException {
-        ArrayList<String> list = new ArrayList<String>();
+        ArrayList<String> list = new ArrayList<>();
+        int i = 0;
         try {
             RandomAccessFile file = new RandomAccessFile(FILE_PATH, "r");
             file.seek(location);            
             while (file.readLine() != null) {
-                
-                //fullList.setText(fullList.getText() + list);
+                list.add(file.readLine());
+                System.out.println(file.getFilePointer());
+                fullList.setText(fullList.getText() + list.get(i) + "\n");
+                i++;
             }
             file.close();
             return list; 
@@ -54,6 +57,8 @@ public class FXMLPatientController implements Initializable {
 
     /**
      * Initializes the controller class.
+     * @param url
+     * @param rb
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
