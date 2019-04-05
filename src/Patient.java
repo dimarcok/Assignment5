@@ -9,11 +9,20 @@ public class Patient {
     private int ownerID;
     private String patientName;
     
+    /**
+     * Default patient constructor
+     */ 
     public Patient() {
-        patientID = 1;
-        ownerID = 1;
-        patientName = "Default Patient";
+        patientID = 1234;
+        ownerID = 1234;
+        patientName = "Default";
     }
+    /**
+     * This 3 parameter constructor accounts for the IDs and name of patient
+     * @param patientID patient's id number
+     * @param ownerID owner's id number
+     * @param patientName patient's name
+     */
     public Patient(int patientID, int ownerID, String patientName) {
         this.patientID = patientID;
         this.ownerID = ownerID;
@@ -39,7 +48,7 @@ public class Patient {
     }
     @Override
     public String toString() {
-        return (patientID + " " + patientName);
+        return (patientID + " " + patientName + " " + ownerID + "\n");
     }
     
     
