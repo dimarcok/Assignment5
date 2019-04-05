@@ -40,10 +40,10 @@ public class FXMLPatientController implements Initializable {
         int i = 0;
         try {
             RandomAccessFile file = new RandomAccessFile(FILE_PATH, "r");
-            file.seek(location);            
-            while (file.readLine() != null) {
+            RandomAccessFile file2 = new RandomAccessFile(FILE_PATH, "r");
+            file.seek(location);
+            while (file2.readLine() != null) {
                 list.add(file.readLine());
-                System.out.println(file.getFilePointer());
                 fullList.setText(fullList.getText() + list.get(i) + "\n");
                 i++;
             }
