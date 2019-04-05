@@ -30,11 +30,19 @@ import javafx.stage.Stage;
 public class FXMLPatientController implements Initializable {
     public static final String FILE_PATH = "Patient.dat";
     
+    // Label that covers all of second page
     @FXML
     private Label fullList;
     
-
-    public ArrayList<String> readFile(String filePath, int location) 
+    /**
+     * 
+     * @param filePath location to file
+     * @param location starting location of file
+     * @throws FileNotFoundException To make sure FILE_PATH is found
+     * @throws IOException  Read/Write exception to Patient.dat file  
+     */
+    @FXML
+    public void readFile(String filePath, int location) 
             throws FileNotFoundException, IOException {
         ArrayList<String> list = new ArrayList<>();
         int i = 0;
@@ -48,15 +56,14 @@ public class FXMLPatientController implements Initializable {
                 i++;
             }
             file.close();
-            return list; 
         } catch (IOException e) {
             e.printStackTrace();
-            return null;
         }       
     }
 
     /**
      * Initializes the controller class.
+     * Runs the readFile function.
      * @param url
      * @param rb
      */
@@ -66,9 +73,6 @@ public class FXMLPatientController implements Initializable {
             readFile(FILE_PATH, 0);
         } catch (IOException e) {
             System.out.println("Error in readFile");
-        }
-        
-        
-    }    
-    
+        }      
+    }       
 }
