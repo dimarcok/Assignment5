@@ -65,7 +65,7 @@ public class FXMLDocumentController implements Initializable {
     private void report(ActionEvent event) throws IOException {
         try {
             RandomAccessFile file = new RandomAccessFile(FILE_PATH, "r");
-            readFile(FILE_PATH, 1_000_000, (int) file.length());
+            readFile(FILE_PATH, 100, (int) file.length());
         } catch (FileNotFoundException e) {
             System.out.println("Error in try/catch");
         }
@@ -84,7 +84,7 @@ public class FXMLDocumentController implements Initializable {
     public static byte[] readFile(String filePath, int size, int location) 
             throws FileNotFoundException, IOException {
         try {
-           RandomAccessFile file = new RandomAccessFile(FILE_PATH, "r");
+            RandomAccessFile file = new RandomAccessFile(FILE_PATH, "r");
             file.seek(location);
             byte[] bytes = new byte[size];
             file.read(bytes);

@@ -4,6 +4,7 @@
 <?import java.util.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.*?>
+<?import javafx.collections.FXCollections?>
 <?import javafx.scene.control.cell.PropertyValueFactory?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
@@ -33,8 +34,11 @@
                     </TableColumn>
                 </columns>
                     <items>
+                        <FXCollections fx:factory="observableArrayList">
+                            
+                        </FXCollections>
                         
-                </items>
+                    </items>
             </TableView>
         </GridPane>
 </AnchorPane>
