@@ -43,8 +43,9 @@ public class FXMLPatientController implements Initializable {
             
             while (file.readLine() != null) {
                 list.add(file.readLine());
-                fullList.setText(fullList.getText() + list);
+                //fullList.setText(fullList.getText() + list);
             }
+            fullList.setText(list.toString());
             file.close();
             return list; 
         } catch (IOException e) {

@@ -70,8 +70,8 @@ public class FXMLDocumentController implements Initializable {
             stage.setTitle("Reports");
             stage.setScene(new Scene(root1));
             stage.show();
-        } catch (Exception e) {
-            System.out.println("Does not work"); 
+        } catch (IOException e) {
+            System.out.println("Does not work, Error in report button"); 
         }
     }
     @FXML 
