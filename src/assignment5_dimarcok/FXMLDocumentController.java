@@ -5,6 +5,7 @@
  */
 package assignment5_dimarcok;
 
+import static assignment5_dimarcok.FXMLPatientController.readFile;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.RandomAccessFile;
@@ -58,18 +59,10 @@ public class FXMLDocumentController implements Initializable {
             System.out.println(file.length());
         } catch (FileNotFoundException e) {
             System.out.println("Error in try/catch");
-        }
-        
+        }      
     }
     @FXML 
     private void report(ActionEvent event) throws IOException {
-        try {
-            RandomAccessFile file = new RandomAccessFile(FILE_PATH, "r");
-            readFile(FILE_PATH, 100, (int) file.length());
-        } catch (FileNotFoundException e) {
-            System.out.println("Error in try/catch");
-        }
-        
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("FXMLPatient.fxml"));
             Parent root1 = (Parent) loader.load();
@@ -81,20 +74,7 @@ public class FXMLDocumentController implements Initializable {
             System.out.println("Does not work"); 
         }
     }
-    public static byte[] readFile(String filePath, int size, int location) 
-            throws FileNotFoundException, IOException {
-        try {
-            RandomAccessFile file = new RandomAccessFile(FILE_PATH, "r");
-            file.seek(location);
-            byte[] bytes = new byte[size];
-            file.read(bytes);
-            file.close();
-            return bytes; 
-        } catch (IOException e) {
-            e.printStackTrace();
-            return null;
-        }       
-    }
+    @FXML 
     public static void writeFile(String filePath, String data, int location) 
             throws FileNotFoundException, IOException {
         try {

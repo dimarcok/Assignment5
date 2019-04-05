@@ -9,36 +9,10 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="420.0" prefWidth="300.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="assignment5_dimarcok.FXMLDocumentController">
-        <GridPane alignment="center">
-            <padding>
-                <Insets top="10" right="10" bottom="10" left="10"/>
-            </padding>
- 
-            <TableView GridPane.columnIndex="0" GridPane.rowIndex="2">
-                <columns>
-                    <TableColumn text="Patient ID" prefWidth="100">
-                        <cellValueFactory>
-                            <PropertyValueFactory property="patientId" />
-                        </cellValueFactory>
-                    </TableColumn>
-                    <TableColumn text="Patient Name" prefWidth="150">
-                        <cellValueFactory>
-                            <PropertyValueFactory property="name" />
-                        </cellValueFactory>
-                    </TableColumn>
-                    <TableColumn text="ownerID" prefWidth="100">
-                        <cellValueFactory>
-                            <PropertyValueFactory property="ownerId" />
-                        </cellValueFactory>
-                    </TableColumn>
-                </columns>
-                    <items>
-                        <FXCollections fx:factory="observableArrayList">
-                            
-                        </FXCollections>
-                        
-                    </items>
-            </TableView>
-        </GridPane>
+<AnchorPane id="AnchorPane" prefHeight="420.0" prefWidth="300.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="assignment5_dimarcok.FXMLPatientController">
+    <Label id="title" layoutX="90" layoutY="10" minHeight="40" minWidth="200" text="Kevin's Patient List" fx:id="title"/>
+    <Label id="printout" layoutX="10" layoutY="60" minHeight="40" minWidth="200" fx:id="fullList"/>
+        
+       
+    
 </AnchorPane>
