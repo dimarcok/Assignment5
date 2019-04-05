@@ -38,10 +38,19 @@ public class FXMLDocumentController implements Initializable {
     private TextField ownerID;
     
     @FXML
-    private void addPatient(ActionEvent event) throws IOException {
-        String name = patientName.getText();
+    private void addPatient(ActionEvent event) throws IOException, IllegalArgumentException {
+        String name;
         int patientid;
         int ownerid;
+        boolean nullName= patientName.getText().trim().isEmpty();
+        if  (nullName) { 
+            name = "Default";
+        } else {
+            name = patientName.getText().trim();
+        }
+            
+            
+        
         try {
             patientid = Integer.parseInt(patientID.getText());
             ownerid = Integer.parseInt(ownerID.getText());
